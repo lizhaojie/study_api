@@ -6,23 +6,117 @@
 //  Copyright © 2017年 lizhaojie. All rights reserved.
 //
 
-#import "LZJSDWebImageAPIViewController.h"
+#import "LZJApiStudyViewController.h"
 #import "LZJStudyApiDefine.h"
 
-@interface LZJSDWebImageAPIViewController ()
+@interface LZJApiStudyViewController ()
 
 @end
 
-@implementation LZJSDWebImageAPIViewController
+@implementation LZJApiStudyViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self test_gcd];
+    [self test_operation];
+//    [self test_gcd];
     self.view.backgroundColor = [UIColor whiteColor];
 //    [self block_test_one];
 //    [self block_test_two];
 //    [self study_sdweb_image];
     // Do any additional setup after loading the view.
+}
+- (void)test_operation{
+//    NSOperation *operation = [[NSOperation alloc] init];
+//    [self test_subOperation];//子类
+//    [self test_subOperations];
+//    [self test_opQueue];
+    [self test_dependency];
+}
+- (void)test_subOperation{
+    NSInvocationOperation *invocationOperation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(logOne) object:nil];
+    [invocationOperation start];
+    NSBlockOperation *blockOp = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"blockOpThread: %@----log: NSBlockOperation running", [NSThread currentThread]);
+
+    }];
+    [blockOp start];
+    
+}
+/*
+ 任务是并行执行的，但是阻塞了主线程，直到任务都执行完成
+ 
+ */
+- (void)test_subOperations{
+    NSBlockOperation *blockOp = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"任务 0：blockOpThread: %@----log: NSBlockOperation running", [NSThread currentThread]);
+        
+    }];
+    for (int i = 1; i < 5; i++) {
+        [blockOp addExecutionBlock:^{
+            NSLog(@"任务 %d：blockOpThread: %@----log: NSBlockOperation running", i, [NSThread currentThread]);
+
+        }];
+    }
+    
+    [blockOp start];
+}
+/*
+ 实现并行异步执行
+ */
+- (void)test_opQueue{
+    NSLog(@"main thread start");
+    
+    NSOperationQueue *queue=  [[NSOperationQueue alloc] init];
+    NSBlockOperation *blockOp = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"任务 0：blockOpThread: %@----log: NSBlockOperation running", [NSThread currentThread]);
+
+    }];
+    for (int i = 1; i < 5; i++) {
+        [blockOp addExecutionBlock:^{
+            NSLog(@"任务 %d：blockOpThread: %@----log: NSBlockOperation running", i, [NSThread currentThread]);
+            
+        }];
+    }
+    [queue addOperation:blockOp];
+//    [queue waitUntilAllOperationsAreFinished];//阻塞当前线程知道执行完所有任务，再执行当前线程中的其他任务
+//    [blockOp waitUntilFinished];//阻塞当前线程知道执行完所有任务，再执行当前线程中的其他任务
+    NSLog(@"main thread end");
+
+    
+}
+/*
+ 实现串行执行
+ 
+ */
+- (void)test_dependency{
+    NSLog(@"main thread start");
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    
+    NSBlockOperation *opOne = [NSBlockOperation blockOperationWithBlock:^{
+//        [NSThread sleepForTimeInterval:1.0];
+        NSLog(@"任务 1  blockOpThread: %@", [NSThread currentThread]);
+    }];
+    NSBlockOperation *opTwo = [NSBlockOperation blockOperationWithBlock:^{
+//        [NSThread sleepForTimeInterval:1.0];
+        NSLog(@"任务 2  blockOpThread: %@", [NSThread currentThread]);
+    }];
+    NSBlockOperation *opThree = [NSBlockOperation blockOperationWithBlock:^{
+//        [NSThread sleepForTimeInterval:1.0];
+        NSLog(@"任务 3 blockOpThread: %@", [NSThread currentThread]);
+    }];
+    NSBlockOperation *opFour = [NSBlockOperation blockOperationWithBlock:^{
+//        [NSThread sleepForTimeInterval:1.0];
+        NSLog(@"任务 4 blockOpThread: %@", [NSThread currentThread]);
+    }];
+    [opFour addDependency:opThree];
+    [opThree addDependency:opTwo];
+    [opTwo addDependency:opOne];
+    [queue addOperations:[NSArray arrayWithObjects:opOne,opTwo,opThree,opFour, nil] waitUntilFinished:YES];//params:waitUntilFinished:是否阻塞主线程 YES:阻塞 NO:不阻塞
+    
+    NSLog(@"main thread end");
+}
+- (void)logOne{
+    NSLog(@"invocationThread: %@----log: NSInvocationOperation running", [NSThread currentThread]);
 }
 - (void)test_gcd{
 //    [self test_global];//全局队列

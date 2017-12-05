@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "LZJSDWebImageAPIViewController.h"
+#import "LZJApiStudyViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +17,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    LZJSDWebImageAPIViewController *vc = [[LZJSDWebImageAPIViewController alloc] init];
+    LZJApiStudyViewController *vc = [[LZJApiStudyViewController alloc] init];
     self.window.rootViewController = vc;
     // Override point for customization after application launch.
     return YES;

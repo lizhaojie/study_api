@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LZJSDWebImageAPIViewController : UIViewController
+@interface LZJApiStudyViewController : UIViewController
 
 @end

@@ -9,5 +9,7 @@
 #import "LZJOperation.h"
 
 @implementation LZJOperation
-
+- (void)main{
+    
+}
 @end

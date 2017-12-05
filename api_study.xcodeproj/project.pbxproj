@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		731395703C052010A6B2CA50 /* libPods-api_study.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A25B9FBB5826FF73CA912AC1 /* libPods-api_study.a */; };
+		F705C2551FD635A7008F9B02 /* LZJOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F705C2541FD635A7008F9B02 /* LZJOperation.m */; };
 		F791166A1FC2A6180053ECFF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F79116691FC2A6180053ECFF /* AppDelegate.m */; };
 		F791166D1FC2A6180053ECFF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F791166C1FC2A6180053ECFF /* ViewController.m */; };
 		F79116701FC2A6180053ECFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F791166E1FC2A6180053ECFF /* Main.storyboard */; };
@@ -16,7 +17,7 @@
 		F79116781FC2A6180053ECFF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F79116771FC2A6180053ECFF /* main.m */; };
 		F79116821FC2A6180053ECFF /* api_studyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F79116811FC2A6180053ECFF /* api_studyTests.m */; };
 		F791168D1FC2A6180053ECFF /* api_studyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F791168C1FC2A6180053ECFF /* api_studyUITests.m */; };
-		F791169C1FC2A70F0053ECFF /* LZJSDWebImageAPIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F791169B1FC2A70F0053ECFF /* LZJSDWebImageAPIViewController.m */; };
+		F791169C1FC2A70F0053ECFF /* LZJApiStudyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F791169B1FC2A70F0053ECFF /* LZJApiStudyViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		91AEB88CAB4672D8E09C0A7F /* Pods-api_study.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-api_study.debug.xcconfig"; path = "Pods/Target Support Files/Pods-api_study/Pods-api_study.debug.xcconfig"; sourceTree = "<group>"; };
 		A25B9FBB5826FF73CA912AC1 /* libPods-api_study.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-api_study.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D847A4C87F4D13D165E3FA9E /* Pods-api_study.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-api_study.release.xcconfig"; path = "Pods/Target Support Files/Pods-api_study/Pods-api_study.release.xcconfig"; sourceTree = "<group>"; };
+		F705C2531FD635A7008F9B02 /* LZJOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZJOperation.h; sourceTree = "<group>"; };
+		F705C2541FD635A7008F9B02 /* LZJOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZJOperation.m; sourceTree = "<group>"; };
 		F79116651FC2A6180053ECFF /* api_study.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = api_study.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F79116681FC2A6180053ECFF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F79116691FC2A6180053ECFF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -56,8 +59,8 @@
 		F79116881FC2A6180053ECFF /* api_studyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = api_studyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F791168C1FC2A6180053ECFF /* api_studyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = api_studyUITests.m; sourceTree = "<group>"; };
 		F791168E1FC2A6180053ECFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F791169A1FC2A70F0053ECFF /* LZJSDWebImageAPIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZJSDWebImageAPIViewController.h; sourceTree = "<group>"; };
-		F791169B1FC2A70F0053ECFF /* LZJSDWebImageAPIViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZJSDWebImageAPIViewController.m; sourceTree = "<group>"; };
+		F791169A1FC2A70F0053ECFF /* LZJApiStudyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZJApiStudyViewController.h; sourceTree = "<group>"; };
+		F791169B1FC2A70F0053ECFF /* LZJApiStudyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZJApiStudyViewController.m; sourceTree = "<group>"; };
 		F791169D1FC2A8640053ECFF /* LZJStudyApiDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZJStudyApiDefine.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,8 +136,10 @@
 				F79116691FC2A6180053ECFF /* AppDelegate.m */,
 				F791166B1FC2A6180053ECFF /* ViewController.h */,
 				F791166C1FC2A6180053ECFF /* ViewController.m */,
-				F791169A1FC2A70F0053ECFF /* LZJSDWebImageAPIViewController.h */,
-				F791169B1FC2A70F0053ECFF /* LZJSDWebImageAPIViewController.m */,
+				F705C2531FD635A7008F9B02 /* LZJOperation.h */,
+				F705C2541FD635A7008F9B02 /* LZJOperation.m */,
+				F791169A1FC2A70F0053ECFF /* LZJApiStudyViewController.h */,
+				F791169B1FC2A70F0053ECFF /* LZJApiStudyViewController.m */,
 				F791166E1FC2A6180053ECFF /* Main.storyboard */,
 				F79116711FC2A6180053ECFF /* Assets.xcassets */,
 				F79116731FC2A6180053ECFF /* LaunchScreen.storyboard */,
@@ -347,7 +352,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F791169C1FC2A70F0053ECFF /* LZJSDWebImageAPIViewController.m in Sources */,
+				F791169C1FC2A70F0053ECFF /* LZJApiStudyViewController.m in Sources */,
+				F705C2551FD635A7008F9B02 /* LZJOperation.m in Sources */,
 				F791166D1FC2A6180053ECFF /* ViewController.m in Sources */,
 				F79116781FC2A6180053ECFF /* main.m in Sources */,
 				F791166A1FC2A6180053ECFF /* AppDelegate.m in Sources */,
