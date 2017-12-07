@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface LZJOperation : NSOperation
+//- (BOOL)performOperation:(NSOperation *)op;
 
 @end

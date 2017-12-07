@@ -8,6 +8,7 @@
 
 #import "LZJApiStudyViewController.h"
 #import "LZJStudyApiDefine.h"
+#import "LZJOperation.h"
 
 @interface LZJApiStudyViewController ()
 
@@ -30,7 +31,14 @@
 //    [self test_subOperation];//子类
 //    [self test_subOperations];
 //    [self test_opQueue];
-    [self test_dependency];
+//    [self test_dependency];
+    [self test_custom_suboperation];
+}
+- (void)test_custom_suboperation{
+    LZJOperation *op = [[LZJOperation alloc] init];
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    [queue addOperation:op];
+    NSLog(@"current mainThread == %@",[NSThread currentThread]);
 }
 - (void)test_subOperation{
     NSInvocationOperation *invocationOperation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(logOne) object:nil];
